@@ -1,0 +1,316 @@
+/* @font-face {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    src: url();
+} */
+*{
+    box-sizing: border-box;
+}
+body, html {
+    font-size: 16px;
+    color: rgba(0,0 ,0,0.87);
+    font-family:"Montserrat", sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    font-weight: medium;
+    background-color:#c4c4c4
+}
+.topbar{
+    margin-top: 0;
+    padding-top: 0;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width:100%;
+    padding: 30px;
+    z-index: 4;
+    box-shadow: 2px 2px 0.5 burlywood ;
+     height: 50px; ;
+}
+.topbar nav{
+    margin-top: 0;
+    padding-top: 0;
+    float: left;
+}
+ .social a{
+    float: right;
+    padding: 0 12px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+.social a:hover{
+    opacity: 1;
+}
+.topbar nav a {
+    color: gray;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 53px;
+    transition: color 0.3s;
+}
+.topbar nav a:hover , .topbar nav a.active{
+    /* Quand il s'agit pas d'un enfant et l'élément mm a la classe, c'est collé comme la sélection du haut parce que ce n'est pas un enfant, */
+     color: rgba(0, 0, 0,1);
+   
+}
+.banniere{
+    height: 427px;
+    background-image: url(Img/saut.jpeg.jpg);
+    background-size: cover;
+    background-clip:no-repeat;
+    background-attachment:fixed;
+    filter: blur(5px);
+    -webkit-filter: 15px;
+    /* Là on travaille avec les navigateurs et propriétés avec les préfixes -o-filter pour opera , -moz- pour modzilla -ms pour microsoft -wekit- pour webkit */
+    
+}
+.main{
+    float: left;
+    width:calc(100% - 375px);
+    background-color:white;
+    box-shadow: 0 4px 30px rgba(0, 0,0, 0.5) ;
+    /* box-shadow: offset-x offst-y blur couleur ; */
+    z-index: 2;
+    position: relative;
+    /* z-index ne marche que sur des positions absolute ou hidden */
+}
+.sidebar{
+    position: relative;
+    float: right;
+    width: 375px; 
+    padding: 40px;
+    z-index: 1;
+    
+
+}
+.footer{
+    clear: both;
+
+}
+.sidebar-title{
+    font-size: 30px;
+    color: black;
+    margin: 15px 0;
+}
+.sidebar-title:nth-child(1){
+    margin-top: 0;
+}
+.sidebar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+}
+.sidebar a {
+    text-decoration: none;
+    color: hsla(0, 12%, 16%, 0.8);
+}
+.sidebar a:hover {
+    text-decoration: underline;
+}
+.sidebar li{
+    padding: 6px 0;
+}
+.sidebar li:first-child{
+    padding-top: 0;
+}
+.sidebar li:last-child{
+    padding-bottom: 0;
+}
+.sidebar hr{
+    /* border-color: #c4c4c4; */
+     
+    margin: 50px 0;
+    height: 1px;
+}
+.article{
+    overflow: hidden;
+    display: flex;
+    flex-direction:column;
+    margin: 50px 10px;
+    
+}
+.article-img{
+    float: left;
+    width: 308px;
+    margin-right: 25px;
+}
+.article-img img{
+    width: 100%;
+    height:auto;
+}
+.article-date{
+    font-weight: 300;
+    color: rgb(0,0,0);
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+.article-title{
+    font-size: 2.25rem;
+    line-height: 1.1;
+    font-family: "cardo" serif;
+    margin: 0 0 15px 0;
+}
+.article a{
+    color: inherit;
+    text-decoration: none;
+}
+.article a:hover{
+    text-decoration:underline
+}
+/* min-height, width... permet de spécifier une hauteur minimale... , max-height et max-width ne sont pas loin*/
+.important{
+    color: red !important;
+    font-size: 20px ;
+}
+/* ::-ms-selection{
+    color: red;
+    background-color: aqua;
+} */
+p::first-letter{
+    font-size: 2em;
+    font-weight: bold;
+}
+/* .sidebar li::before{
+    content: "-";
+}
+.sidebar li::after{
+    content: ".";
+} */
+blockquote{
+    color: black;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    /* background-color: lightgrey;
+    width: 200px; */
+}
+blockquote::before{
+    content: '"';
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    font-size: x-large;
+}
+blockquote::after{
+    content: '"';
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: x-large;
+}
+.sidebar ul{
+    counter-reset:sidebarlist;
+}
+.sidebar li::before{
+    counter-increment: sidebarlist;
+    content: counter(sidebarlist) ". ";
+}
+/* .sidebar li::after{
+    content: "3";
+    float: right;
+    color: black;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+} */
+.sidebar a::after{
+    content: attr(data-count);
+    float: right;
+    color: black;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+}
+.article-img:hover{
+   transform: rotate(-30deg) scale(0.9) skew(-30deg) ;
+  /* transition: transform 0.5s 1s  ;
+  L'animation se fait aprèsune seconde */
+  transition: cubic-bezier(1, -0.43, 0, 0.33) 1s;
+   perspective: 1000px;
+    perspective-origin:left center;
+    animation-play-state: paused;
+   /* transform a aussi les propriétés rotate en deg 
+   la propriété skew en deget la propriété translate et les propriétés se font suivant x , y ...*/
+}
+.article-img img{
+    animation-name: slideUp;
+    animation-iteration-count: 3;
+    animation-delay: 1s;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+/* .article{
+    perspective: 1000px;
+    perspective-origin:left center;
+
+♣ perspective pour la profondeur  et perspective-origin est l'endroit où se place la caméra des effets 3D 
+ */
+
+ @keyframes slideUp{
+    from{
+        transform: translateY(200px);
+        opacity:0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+ }
+@media only screen and (max-width:1100px) {
+    .main{
+        width: 100%;
+        overflow: hidden;
+        display: block;
+    }
+    .body{
+        display: block;
+    }
+    .sidebar{
+        width: 100%;
+        display: block;
+    }
+}
+@media screen and (max-width:740px){
+    .main{
+        width: 100%;
+        overflow: hidden;
+        display: block;
+    }
+    .body{
+        display: block;
+    }
+    .sidebar{
+        width: 100%;
+        display: block;
+    }
+    .topbar{
+        display: flex;
+        justify-items: center;
+        align-items:center;
+    }
+    .article-img{
+        position: static;
+        display: block;
+        width: 100%;
+    }
+}
+@media screen and (max-width:920px){
+    .topbar nav{
+        float: none;
+        text-align: center;
+        white-space:nowrap;
+    }
+    .topbar{
+        position: static;
+    }
+    .topbar .social{
+        float: none;
+        text-align: center;
+    }
+}
